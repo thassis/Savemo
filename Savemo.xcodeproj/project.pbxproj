@@ -1,0 +1,588 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		64FB22A2290F604B00A378D2 /* SavemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB22A1290F604B00A378D2 /* SavemoApp.swift */; };
+		64FB22A4290F604B00A378D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB22A3290F604B00A378D2 /* ContentView.swift */; };
+		64FB22A6290F604C00A378D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64FB22A5290F604C00A378D2 /* Assets.xcassets */; };
+		64FB22A9290F604C00A378D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64FB22A8290F604C00A378D2 /* Preview Assets.xcassets */; };
+		64FB22B3290F604C00A378D2 /* SavemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB22B2290F604C00A378D2 /* SavemoTests.swift */; };
+		64FB22BD290F604C00A378D2 /* SavemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB22BC290F604C00A378D2 /* SavemoUITests.swift */; };
+		64FB22BF290F604C00A378D2 /* SavemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB22BE290F604C00A378D2 /* SavemoUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		64FB22AF290F604C00A378D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64FB2296290F604B00A378D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64FB229D290F604B00A378D2;
+			remoteInfo = Savemo;
+		};
+		64FB22B9290F604C00A378D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64FB2296290F604B00A378D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64FB229D290F604B00A378D2;
+			remoteInfo = Savemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		64FB229E290F604B00A378D2 /* Savemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Savemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		64FB22A1290F604B00A378D2 /* SavemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavemoApp.swift; sourceTree = "<group>"; };
+		64FB22A3290F604B00A378D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		64FB22A5290F604C00A378D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		64FB22A8290F604C00A378D2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		64FB22AE290F604C00A378D2 /* SavemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SavemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		64FB22B2290F604C00A378D2 /* SavemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavemoTests.swift; sourceTree = "<group>"; };
+		64FB22B8290F604C00A378D2 /* SavemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SavemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		64FB22BC290F604C00A378D2 /* SavemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavemoUITests.swift; sourceTree = "<group>"; };
+		64FB22BE290F604C00A378D2 /* SavemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		64FB229B290F604B00A378D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64FB22AB290F604C00A378D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64FB22B5290F604C00A378D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		64FB2295290F604B00A378D2 = {
+			isa = PBXGroup;
+			children = (
+				64FB22A0290F604B00A378D2 /* Savemo */,
+				64FB22B1290F604C00A378D2 /* SavemoTests */,
+				64FB22BB290F604C00A378D2 /* SavemoUITests */,
+				64FB229F290F604B00A378D2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		64FB229F290F604B00A378D2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				64FB229E290F604B00A378D2 /* Savemo.app */,
+				64FB22AE290F604C00A378D2 /* SavemoTests.xctest */,
+				64FB22B8290F604C00A378D2 /* SavemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		64FB22A0290F604B00A378D2 /* Savemo */ = {
+			isa = PBXGroup;
+			children = (
+				64FB22A1290F604B00A378D2 /* SavemoApp.swift */,
+				64FB22A3290F604B00A378D2 /* ContentView.swift */,
+				64FB22A5290F604C00A378D2 /* Assets.xcassets */,
+				64FB22A7290F604C00A378D2 /* Preview Content */,
+			);
+			path = Savemo;
+			sourceTree = "<group>";
+		};
+		64FB22A7290F604C00A378D2 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				64FB22A8290F604C00A378D2 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		64FB22B1290F604C00A378D2 /* SavemoTests */ = {
+			isa = PBXGroup;
+			children = (
+				64FB22B2290F604C00A378D2 /* SavemoTests.swift */,
+			);
+			path = SavemoTests;
+			sourceTree = "<group>";
+		};
+		64FB22BB290F604C00A378D2 /* SavemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				64FB22BC290F604C00A378D2 /* SavemoUITests.swift */,
+				64FB22BE290F604C00A378D2 /* SavemoUITestsLaunchTests.swift */,
+			);
+			path = SavemoUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		64FB229D290F604B00A378D2 /* Savemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64FB22C2290F604C00A378D2 /* Build configuration list for PBXNativeTarget "Savemo" */;
+			buildPhases = (
+				64FB229A290F604B00A378D2 /* Sources */,
+				64FB229B290F604B00A378D2 /* Frameworks */,
+				64FB229C290F604B00A378D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Savemo;
+			productName = Savemo;
+			productReference = 64FB229E290F604B00A378D2 /* Savemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		64FB22AD290F604C00A378D2 /* SavemoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64FB22C5290F604C00A378D2 /* Build configuration list for PBXNativeTarget "SavemoTests" */;
+			buildPhases = (
+				64FB22AA290F604C00A378D2 /* Sources */,
+				64FB22AB290F604C00A378D2 /* Frameworks */,
+				64FB22AC290F604C00A378D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				64FB22B0290F604C00A378D2 /* PBXTargetDependency */,
+			);
+			name = SavemoTests;
+			productName = SavemoTests;
+			productReference = 64FB22AE290F604C00A378D2 /* SavemoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		64FB22B7290F604C00A378D2 /* SavemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64FB22C8290F604C00A378D2 /* Build configuration list for PBXNativeTarget "SavemoUITests" */;
+			buildPhases = (
+				64FB22B4290F604C00A378D2 /* Sources */,
+				64FB22B5290F604C00A378D2 /* Frameworks */,
+				64FB22B6290F604C00A378D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				64FB22BA290F604C00A378D2 /* PBXTargetDependency */,
+			);
+			name = SavemoUITests;
+			productName = SavemoUITests;
+			productReference = 64FB22B8290F604C00A378D2 /* SavemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		64FB2296290F604B00A378D2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					64FB229D290F604B00A378D2 = {
+						CreatedOnToolsVersion = 14.0.1;
+					};
+					64FB22AD290F604C00A378D2 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 64FB229D290F604B00A378D2;
+					};
+					64FB22B7290F604C00A378D2 = {
+						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 64FB229D290F604B00A378D2;
+					};
+				};
+			};
+			buildConfigurationList = 64FB2299290F604B00A378D2 /* Build configuration list for PBXProject "Savemo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 64FB2295290F604B00A378D2;
+			productRefGroup = 64FB229F290F604B00A378D2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				64FB229D290F604B00A378D2 /* Savemo */,
+				64FB22AD290F604C00A378D2 /* SavemoTests */,
+				64FB22B7290F604C00A378D2 /* SavemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		64FB229C290F604B00A378D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64FB22A9290F604C00A378D2 /* Preview Assets.xcassets in Resources */,
+				64FB22A6290F604C00A378D2 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64FB22AC290F604C00A378D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64FB22B6290F604C00A378D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		64FB229A290F604B00A378D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64FB22A4290F604B00A378D2 /* ContentView.swift in Sources */,
+				64FB22A2290F604B00A378D2 /* SavemoApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64FB22AA290F604C00A378D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64FB22B3290F604C00A378D2 /* SavemoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64FB22B4290F604C00A378D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64FB22BD290F604C00A378D2 /* SavemoUITests.swift in Sources */,
+				64FB22BF290F604C00A378D2 /* SavemoUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		64FB22B0290F604C00A378D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64FB229D290F604B00A378D2 /* Savemo */;
+			targetProxy = 64FB22AF290F604C00A378D2 /* PBXContainerItemProxy */;
+		};
+		64FB22BA290F604C00A378D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64FB229D290F604B00A378D2 /* Savemo */;
+			targetProxy = 64FB22B9290F604C00A378D2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		64FB22C0290F604C00A378D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		64FB22C1290F604C00A378D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		64FB22C3290F604C00A378D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Savemo/Preview Content\"";
+				DEVELOPMENT_TEAM = 744W89F35D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thiago.Savemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		64FB22C4290F604C00A378D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Savemo/Preview Content\"";
+				DEVELOPMENT_TEAM = 744W89F35D;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thiago.Savemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		64FB22C6290F604C00A378D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 744W89F35D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thiago.SavemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Savemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Savemo";
+			};
+			name = Debug;
+		};
+		64FB22C7290F604C00A378D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 744W89F35D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thiago.SavemoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Savemo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Savemo";
+			};
+			name = Release;
+		};
+		64FB22C9290F604C00A378D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 744W89F35D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thiago.SavemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Savemo;
+			};
+			name = Debug;
+		};
+		64FB22CA290F604C00A378D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 744W89F35D;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thiago.SavemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Savemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		64FB2299290F604B00A378D2 /* Build configuration list for PBXProject "Savemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64FB22C0290F604C00A378D2 /* Debug */,
+				64FB22C1290F604C00A378D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64FB22C2290F604C00A378D2 /* Build configuration list for PBXNativeTarget "Savemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64FB22C3290F604C00A378D2 /* Debug */,
+				64FB22C4290F604C00A378D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64FB22C5290F604C00A378D2 /* Build configuration list for PBXNativeTarget "SavemoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64FB22C6290F604C00A378D2 /* Debug */,
+				64FB22C7290F604C00A378D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64FB22C8290F604C00A378D2 /* Build configuration list for PBXNativeTarget "SavemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64FB22C9290F604C00A378D2 /* Debug */,
+				64FB22CA290F604C00A378D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 64FB2296290F604B00A378D2 /* Project object */;
+}

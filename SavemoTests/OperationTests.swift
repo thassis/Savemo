@@ -23,6 +23,24 @@ final class OperationTests: XCTestCase {
         }
     }
     
+    func testTwoOperationsAreEquals() {
+        let FIVE_REAIS = Float(5.0)
+        let date = Date()
+        let firstOperation = try! Operation(FIVE_REAIS, OperationType.Credit , startDate: date)
+        let secondOperation = try! Operation(FIVE_REAIS, OperationType.Credit , startDate: date)
+
+        XCTAssert(firstOperation == secondOperation)
+    }
+    
+    func testTwoOperationsAreNotEquals() {
+        let FIVE_REAIS = Float(5.0)
+        let SEVEN_REAIS = Float(7.0)
+        let firstOperation = try! Operation(FIVE_REAIS, OperationType.Credit , startDate: Date())
+        let secondOperation = try! Operation(SEVEN_REAIS, OperationType.Credit , startDate: Date())
+
+        XCTAssertFalse(firstOperation == secondOperation)
+    }
+    
     /*func testHasToPayAutomaticDebit() {
         let FIVE_REAIS = Float(5.0)
         

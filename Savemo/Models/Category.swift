@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category {
+struct Category: Equatable {
     private(set) var name: String
     private(set) var limitedValue: Float
     
@@ -19,4 +19,7 @@ struct Category {
         self.limitedValue = limitedValue
     }
     
+    static func ==(lhs: Category, rhs: Category) -> Bool {
+        return lhs.name == rhs.name && lhs.limitedValue == rhs.limitedValue
+    }
 }

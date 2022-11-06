@@ -27,6 +27,8 @@
 		641D761729184BDE00000AC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D761629184BDE00000AC1 /* User.swift */; };
 		641D761829184BDE00000AC1 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D761629184BDE00000AC1 /* User.swift */; };
 		641D761A29184BFB00000AC1 /* UserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D761929184BFB00000AC1 /* UserTests.swift */; };
+		641D761F29186E3D00000AC1 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D761E29186E3D00000AC1 /* UserError.swift */; };
+		641D762029186E3D00000AC1 /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641D761E29186E3D00000AC1 /* UserError.swift */; };
 		64FB22A2290F604B00A378D2 /* SavemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB22A1290F604B00A378D2 /* SavemoApp.swift */; };
 		64FB22A4290F604B00A378D2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB22A3290F604B00A378D2 /* ContentView.swift */; };
 		64FB22A6290F604C00A378D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64FB22A5290F604C00A378D2 /* Assets.xcassets */; };
@@ -65,6 +67,7 @@
 		641D76112918472D00000AC1 /* OperationType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationType.swift; sourceTree = "<group>"; };
 		641D761629184BDE00000AC1 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		641D761929184BFB00000AC1 /* UserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTests.swift; sourceTree = "<group>"; };
+		641D761E29186E3D00000AC1 /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		64FB229E290F604B00A378D2 /* Savemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Savemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64FB22A1290F604B00A378D2 /* SavemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavemoApp.swift; sourceTree = "<group>"; };
 		64FB22A3290F604B00A378D2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -134,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				641D76042918406900000AC1 /* ValueError.swift */,
+				641D761E29186E3D00000AC1 /* UserError.swift */,
 			);
 			path = ErrorTypes;
 			sourceTree = "<group>";
@@ -342,6 +346,7 @@
 				641D75F5291830E800000AC1 /* Periodicity.swift in Sources */,
 				64FB22A4290F604B00A378D2 /* ContentView.swift in Sources */,
 				641D76122918472D00000AC1 /* OperationType.swift in Sources */,
+				641D761F29186E3D00000AC1 /* UserError.swift in Sources */,
 				641D760A2918421800000AC1 /* HomeViewModel.swift in Sources */,
 				641D76052918406900000AC1 /* ValueError.swift in Sources */,
 				64FB22A2290F604B00A378D2 /* SavemoApp.swift in Sources */,
@@ -366,6 +371,7 @@
 				641D75F929183CEA00000AC1 /* CategoryTests.swift in Sources */,
 				641D761A29184BFB00000AC1 /* UserTests.swift in Sources */,
 				641D75FE29183EF400000AC1 /* Category.swift in Sources */,
+				641D762029186E3D00000AC1 /* UserError.swift in Sources */,
 				641D76132918472D00000AC1 /* OperationType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

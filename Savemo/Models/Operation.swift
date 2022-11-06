@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Operation {
+struct Operation: Equatable {
     private(set) var value: Float
     private(set) var type: OperationType
     private(set) var startDate: Date
@@ -26,4 +26,9 @@ struct Operation {
         self.startDate = startDate
         self.description = description
     }
+    
+    static func ==(lhs: Operation, rhs: Operation) -> Bool {
+        return lhs.value == rhs.value && lhs.type == rhs.type && lhs.startDate == rhs.startDate && lhs.category == rhs.category && lhs.description == rhs.description
+    }
+    
 }

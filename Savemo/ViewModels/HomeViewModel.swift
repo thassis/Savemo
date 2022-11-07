@@ -24,23 +24,23 @@ class HomeViewModel: ObservableObject {
         self.user = User(operations: [creditReais, creditReais, debitReais], categories: [foodCategory, educationCategory, healthCategory, entertainmentCategory], balance: 2500, salary: 10000)
     }
     
-    func addOperation(_ value: String, _ description: String, _ strDate: String, _ category: String? = nil, type: OperationType) {
+    func addOperation(_ value: String, _ description: String, _ strDate: String, _ category: String? = nil, type: OperationType) throws {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
         let date = dateFormatter.date(from: strDate) ?? Date()
-        
+        let test = Float(value) ?? 0
         do {
             try user.addOperation(Operation(Float(value) ?? 0, type, startDate: date, category: category))
         } catch {
-            print("Error while trying to add an operation")
+            throw error
         }
     }
     
     func addDebit(_ value: String, _ description: String, _ strDate: String, _ category: String) {
-        addOperation(value, description, strDate, category, type: OperationType.Debit)
+        try? addOperation(value, description, strDate, category, type: OperationType.Debit)
     }
     
     func addCredit(_ value: String, _ description: String, _ strDate: String) {
-        addOperation(value, description, strDate, type: OperationType.Credit)
+        try? addOperation(value, description, strDate, type: OperationType.Credit)
     }
 }

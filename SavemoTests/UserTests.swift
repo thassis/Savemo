@@ -30,10 +30,19 @@ final class UserTests: XCTestCase {
     
     func testNegativeBalanceAfterAddingDebit() {
         let FIVE_REAIS = Float(5)
-        let credit = try! Operation(FIVE_REAIS, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
+        let debit = try! Operation(FIVE_REAIS, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
         
-        try! user.addOperation(credit)
+        try! user.addOperation(debit)
         XCTAssertEqual(user.balance, FIVE_REAIS * -1)
+    }
+    
+    func testThrownErrorAfterAddingDebitWithNoCategory() {
+        let FIVE_REAIS = Float(5)
+        let debit = try! Operation(FIVE_REAIS, OperationType.Debit, startDate: Date())
+        
+        XCTAssertThrowsError(try user.addOperation(debit)) { (error) in
+            XCTAssertEqual(error as? UserError, UserError.operationWithoutValidCategory)
+        }
     }
     
     func testGetOperationsByCurrentMonthYear() {

@@ -25,6 +25,10 @@ struct Home: View {
                 Text("R$ " + String(self.user.balance))
             }
             Spacer()
+            ScrollView {                
+                CategoriesList(categories: self.user.categories)
+            }
+            Spacer()
             AddOperation(
                 onSubmitCredit: { value, description, date in
                     self.homeViewModel.addCredit(value ?? "", description ?? "", date ?? "")
@@ -33,7 +37,7 @@ struct Home: View {
                     self.homeViewModel.addDebit(value ?? "", description ?? "", date ?? "", category ?? "")
                 }
             )
-        }
+        }.padding()
     }
 }
 

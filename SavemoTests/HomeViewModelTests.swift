@@ -8,16 +8,51 @@
 import XCTest
 
 final class HomeViewModelTests: XCTestCase {
-
-    var homeViewModel: HomeViewModel!
     
-    override func setUp() {
-        let credit = try! Operation(5, OperationType.Credit, startDate: Date())
-        
-        homeViewModel = HomeViewModel(
-            operations: [credit, credit, credit]
-        )
+    var viewModel: HomeViewModel!
+    
+    override func setUpWithError() throws {
+        viewModel = HomeViewModel()
     }
-
+    
+    func testCreditAddedCorrectly() {
+        try! viewModel.addOperation("10", "", "date", "some category", type: OperationType.Credit)
+        try! viewModel.addOperation("10", "", "date", "some category", type: OperationType.Credit)
+        try! viewModel.addOperation("10", "", "date", "some category", type: OperationType.Credit)
+        
+        XCTAssertEqual(viewModel.user.operations.count, 6) //6 because there are already 3 added by default
+    }
+    
+    func testDebitAddedCorrectly() {
+        try! viewModel.addOperation("10", "", "date", "some category", type: OperationType.Debit)
+        try! viewModel.addOperation("10", "", "date", "some category", type: OperationType.Debit)
+        try! viewModel.addOperation("10", "", "date", "some category", type: OperationType.Debit)
+        
+        XCTAssertEqual(viewModel.user.operations.count, 6) //6 because there are already 3 added by default
+    }
+    
+    func testDebitRaiseErrorWhenAddDebitValueZero() {
+        XCTAssertThrowsError(try viewModel.addOperation("0", "", "date", "some category", type: OperationType.Debit)) { (error) in
+            XCTAssertEqual(error as? ValueError, ValueError.isZero)
+        }
+    }
+    
+    func testDebitRaiseErrorWhenAddDebitValueIsEmptyString() {
+        XCTAssertThrowsError(try viewModel.addOperation("", "", "date", "some category", type: OperationType.Debit)) { (error) in
+            XCTAssertEqual(error as? ValueError, ValueError.isZero)
+        }
+    }
+    
+    func testDebitRaiseErrorWhenAddCreditValueZero() {
+        XCTAssertThrowsError(try viewModel.addOperation("0", "", "date", "some category", type: OperationType.Credit)) { (error) in
+            XCTAssertEqual(error as? ValueError, ValueError.isZero)
+        }
+    }
+    
+    func testDebitRaiseErrorWhenAddCreditValueIsEmptyString() {
+        XCTAssertThrowsError(try viewModel.addOperation("", "", "date", "some category", type: OperationType.Credit)) { (error) in
+            XCTAssertEqual(error as? ValueError, ValueError.isZero)
+        }
+    }
     
 }

@@ -11,7 +11,7 @@ import SwiftUI
 struct SavemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Home()
         }
     }
 }

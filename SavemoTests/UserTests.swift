@@ -7,10 +7,12 @@
 
 import XCTest
 
+let FOOD_LIMITED_VALUE = Float(60)
+
 final class UserTests: XCTestCase {
     let operationCurrentDate = try! Operation(5, OperationType.Debit, startDate: Date())
     let operationLastYear = try! Operation(5, OperationType.Debit, startDate: Calendar.current.date(byAdding: .year, value: -1, to: Date())!)
-    let foodCategory = try! Category(name: DefaultCategories.Food.rawValue, limitedValue: Float(60))
+    let foodCategory = try! Category(name: DefaultCategories.Food.rawValue, limitedValue: FOOD_LIMITED_VALUE)
 
     var user: User!
     
@@ -88,14 +90,22 @@ final class UserTests: XCTestCase {
     }
     
     func testGetFoodCategoryExceededLimitAfterAddingDebits() throws {
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        let currentMonth = calendarDate.month!
+        let currentYear = calendarDate.year!
+        
         let pizzaOperation = try! Operation(80, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
         
         try! user.addOperation(pizzaOperation)
-        let exceededCategories = user.getExceededCategories()
+        let exceededCategories = user.getExceededCategoriesByMonthYear(month: currentMonth, year: currentYear)
         XCTAssertEqual(exceededCategories[0], foodCategory)
     }
     
     func testGetManyCategoriesThatExceededLimitAfterAddingDebits() throws {
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        let currentMonth = calendarDate.month!
+        let currentYear = calendarDate.year!
+        
         let pizzaOperation = try! Operation(80, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
         
         let educationCategory = try! Category(name: DefaultCategories.Education.rawValue, limitedValue: Float(100))
@@ -106,19 +116,33 @@ final class UserTests: XCTestCase {
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(booksOperation)
         
-        let exceededCategories = user.getExceededCategories()
+        let exceededCategories = user.getExceededCategoriesByMonthYear(month: currentMonth, year: currentYear)
         XCTAssertEqual(exceededCategories[0], foodCategory)
         XCTAssertEqual(exceededCategories[1], educationCategory)
     }
     
     func testGetNoCategoryExceeded() throws {
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        let currentMonth = calendarDate.month!
+        let currentYear = calendarDate.year!
+        
         let pizzaOperation = try! Operation(8, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
                 
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
         
-        let exceededCategories = user.getExceededCategories()
+        let exceededCategories = user.getExceededCategoriesByMonthYear(month: currentMonth, year: currentYear)
         XCTAssertEqual(exceededCategories, [])
+    }
+    
+    func testTotalLimitedValueFromFoodCategory() {
+        XCTAssertEqual(user.totalLimitedValueFromCategories, FOOD_LIMITED_VALUE)
+    }
+    
+    func testTotalLimitedValueAfterAddingCategory() {
+        let EDUCATION_LIMITED_VALUE = Float(200)
+        try! user.addCategory(Category(name: "some category", limitedValue: EDUCATION_LIMITED_VALUE))
+        XCTAssertEqual(user.totalLimitedValueFromCategories, EDUCATION_LIMITED_VALUE + FOOD_LIMITED_VALUE)
     }
 }

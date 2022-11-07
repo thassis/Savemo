@@ -8,6 +8,7 @@
 import XCTest
 
 let FOOD_LIMITED_VALUE = Float(60)
+let SALARY = Float(2000)
 
 final class UserTests: XCTestCase {
     let operationCurrentDate = try! Operation(5, OperationType.Debit, startDate: Date())
@@ -17,7 +18,7 @@ final class UserTests: XCTestCase {
     var user: User!
     
     override func setUp() {
-        user = User(operations: [operationCurrentDate, operationLastYear], categories: [foodCategory], balance: 0, salary: 2000)
+        user = User(operations: [operationCurrentDate, operationLastYear], categories: [foodCategory], balance: 0, salary: SALARY)
     }
     
     func testPositiveBalanceAfterAddingCredit() {
@@ -153,5 +154,162 @@ final class UserTests: XCTestCase {
         let EDUCATION_LIMITED_VALUE = Float(200)
         try! user.addCategory(Category(name: "some category", limitedValue: EDUCATION_LIMITED_VALUE))
         XCTAssertEqual(user.totalLimitedValueFromCategories, EDUCATION_LIMITED_VALUE + FOOD_LIMITED_VALUE)
+    }
+    
+    func testValueSpentByFoodCategory() {
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        let currentMonth = calendarDate.month!
+        let currentYear = calendarDate.year!
+        
+        let PIZZA_VALUE = Float(80)
+        let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
+
+        try! user.addOperation(pizzaOperation)
+        try! user.addOperation(pizzaOperation)
+        
+        let valueSpent = user.getValueHaveBeenSpentByCategory(foodCategory, month: currentMonth, year: currentYear)
+        XCTAssertEqual(valueSpent, PIZZA_VALUE*2)
+    }
+    
+    func testNoValueSpentByFoodCategoryWithWrongDate() {
+        let date = Calendar.current.date(byAdding: .year, value: -2, to: Date())!
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: date)
+        let currentMonth = calendarDate.month!
+        let lastYear = calendarDate.year!
+        
+        let PIZZA_VALUE = Float(80)
+        let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
+
+        try! user.addOperation(pizzaOperation)
+        try! user.addOperation(pizzaOperation)
+        
+        let valueSpent = user.getValueHaveBeenSpentByCategory(foodCategory, month: currentMonth, year: lastYear)
+        XCTAssertEqual(valueSpent, 0)
+    }
+    
+    func testValueCanBeSpentByFoodCategory() {
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        let currentMonth = calendarDate.month!
+        let currentYear = calendarDate.year!
+        
+        let PIZZA_VALUE = Float(8)
+        let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
+
+        try! user.addOperation(pizzaOperation)
+        try! user.addOperation(pizzaOperation)
+        
+        let VALUE_CAN_BE_SPENT = FOOD_LIMITED_VALUE - (PIZZA_VALUE*2)
+        
+        let valueCanBeSpent = user.getValueCanBeSpentByCategory(foodCategory, month: currentMonth, year: currentYear)
+        XCTAssertEqual(valueCanBeSpent, VALUE_CAN_BE_SPENT)
+    }
+    
+    func testValueCanBeSpentIsZeroWhenNegative() {
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        let currentMonth = calendarDate.month!
+        let currentYear = calendarDate.year!
+        
+        let PIZZA_VALUE = Float(80)
+        let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
+
+        try! user.addOperation(pizzaOperation)
+        try! user.addOperation(pizzaOperation)
+        
+        let VALUE_CAN_BE_SPENT = Float(0)
+        
+        let valueCanBeSpent = user.getValueCanBeSpentByCategory(foodCategory, month: currentMonth, year: currentYear)
+        XCTAssertEqual(valueCanBeSpent, VALUE_CAN_BE_SPENT)
+    }
+    
+    func testValueCanBeSpentIsZeroWhenIsReallyZero() {
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        let currentMonth = calendarDate.month!
+        let currentYear = calendarDate.year!
+        
+        let PIZZA_VALUE = Float(60)
+        let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
+
+        try! user.addOperation(pizzaOperation)
+        try! user.addOperation(pizzaOperation)
+        
+        let VALUE_CAN_BE_SPENT = Float(0)
+        
+        let valueCanBeSpent = user.getValueCanBeSpentByCategory(foodCategory, month: currentMonth, year: currentYear)
+        XCTAssertEqual(valueCanBeSpent, VALUE_CAN_BE_SPENT)
+    }
+    
+    func testPositiveTotalValueCanBeSpentWithAllCategories() {
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        let currentMonth = calendarDate.month!
+        let currentYear = calendarDate.year!
+        
+        let PIZZA_VALUE = Float(60)
+        let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
+
+        try! user.addOperation(pizzaOperation)
+        try! user.addOperation(pizzaOperation)
+        
+        let educationCategory = try! Category(name: DefaultCategories.Education.rawValue, limitedValue: Float(100))
+        try! user.addCategory(educationCategory)
+        
+        let BOOK_VALUE = Float(60)
+        let booksOperation = try! Operation(BOOK_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Education.rawValue)
+        
+        try! user.addOperation(pizzaOperation)
+        try! user.addOperation(booksOperation)
+        
+        let expectedTotalValueCanBeSpent = SALARY - (PIZZA_VALUE*2) - (BOOK_VALUE*2)
+        let totalValueCanBeSpent = user.getValueCanBeSpentAllCategories(month: currentMonth, year: currentYear)
+        XCTAssertEqual(totalValueCanBeSpent, expectedTotalValueCanBeSpent)
+    }
+    
+    func testTotalValueIsZeroWhenCanBeSpentWithAllCategoriesIsNegative() {
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        let currentMonth = calendarDate.month!
+        let currentYear = calendarDate.year!
+        
+        let PIZZA_VALUE = Float(600)
+        let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
+
+        try! user.addOperation(pizzaOperation)
+        try! user.addOperation(pizzaOperation)
+        
+        let educationCategory = try! Category(name: DefaultCategories.Education.rawValue, limitedValue: Float(100))
+        try! user.addCategory(educationCategory)
+        
+        let BOOK_VALUE = Float(600)
+        let booksOperation = try! Operation(BOOK_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Education.rawValue)
+        
+        try! user.addOperation(pizzaOperation)
+        try! user.addOperation(booksOperation)
+        
+        let expectedTotalValueCanBeSpent = Float(0)
+        let totalValueCanBeSpent = user.getValueCanBeSpentAllCategories(month: currentMonth, year: currentYear)
+        XCTAssertEqual(totalValueCanBeSpent, expectedTotalValueCanBeSpent)
+    }
+    
+    func testTotalValueIsZeroWhenCanBeSpentWithAllCategoriesIsReallyZero() {
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        let currentMonth = calendarDate.month!
+        let currentYear = calendarDate.year!
+        
+        let PIZZA_VALUE = Float(500)
+        let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
+
+        try! user.addOperation(pizzaOperation)
+        try! user.addOperation(pizzaOperation)
+        
+        let educationCategory = try! Category(name: DefaultCategories.Education.rawValue, limitedValue: Float(100))
+        try! user.addCategory(educationCategory)
+        
+        let BOOK_VALUE = Float(500)
+        let booksOperation = try! Operation(BOOK_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Education.rawValue)
+        
+        try! user.addOperation(pizzaOperation)
+        try! user.addOperation(booksOperation)
+        
+        let expectedTotalValueCanBeSpent = Float(0)
+        let totalValueCanBeSpent = user.getValueCanBeSpentAllCategories(month: currentMonth, year: currentYear)
+        XCTAssertEqual(totalValueCanBeSpent, expectedTotalValueCanBeSpent)
     }
 }

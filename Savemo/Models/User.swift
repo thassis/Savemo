@@ -66,22 +66,66 @@ struct User {
         return operationsByMonthYear
     }
     
+    func getValueCanBeSpentByCategory(_ category: Category, month: Int, year: Int) -> Float {
+        let operationsByMonthYear = getOperationsByMonthYear(month: month, year: year)
+        var sum = Float(0)
+        categories.forEach { cat in
+            if(cat.name == category.name){
+                operationsByMonthYear.forEach { op in
+                    if(op.type == OperationType.Debit
+                       && op.category == category.name
+                    ){
+                        sum += op.value
+                    }
+                }
+
+            }
+        }
+        let valueCanBeSpent = category.limitedValue - sum
+        if(valueCanBeSpent >= 0){
+            return valueCanBeSpent
+        }
+        return 0
+    }
+    
+    func getValueHaveBeenSpentByCategory(_ category: Category, month: Int, year: Int) -> Float {
+        let operationsByMonthYear = getOperationsByMonthYear(month: month, year: year)
+        var sum = Float(0)
+        categories.forEach { cat in
+            if(cat.name == category.name){
+                operationsByMonthYear.forEach { op in
+                    if(op.type == OperationType.Debit
+                       && op.category == category.name
+                    ){
+                        sum += op.value
+                    }
+                }
+
+            }
+        }
+        return sum
+    }
+    
     func getExceededCategoriesByMonthYear(month: Int, year: Int) -> [Category] {
         var exceededCategories: [Category] = []
-        let operationsByMonthYear = getOperationsByMonthYear(month: month, year: year)
         categories.forEach { cat in
-            var sum = Float(0)
-            operationsByMonthYear.forEach { op in
-                if(op.type == OperationType.Debit
-                   && cat.name == op.category
-                ){
-                    sum += op.value
-                }
-            }
-            if(sum > cat.limitedValue){
+            let valueSpent = getValueHaveBeenSpentByCategory(cat, month: month, year: year)
+            if(valueSpent > cat.limitedValue){
                 exceededCategories.append(cat)
             }
         }
         return exceededCategories
+    }
+    
+    func getValueCanBeSpentAllCategories(month: Int, year: Int) -> Float {
+        var sum = Float(0)
+        categories.forEach { cat in
+            sum += getValueHaveBeenSpentByCategory(cat, month: month, year: year)
+        }
+        let valueCanBeSpent = salary - sum
+        if(valueCanBeSpent >= 0){
+            return valueCanBeSpent
+        }
+        return 0
     }
 }

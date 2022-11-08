@@ -9,7 +9,7 @@ import Foundation
 
 enum DefaultCategories: String {
     case Food = "Food"
-    case HealthCare = "HealthCare"
+    case HealthCare = "Health "
     case Education = "Education"
     case Entertainment = "Entertainment"
 }

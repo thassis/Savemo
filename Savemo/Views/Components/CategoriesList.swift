@@ -16,7 +16,7 @@ struct CategoriesList: View {
             ForEach(categories) { category in
                 VStack(alignment: .leading){
                     Text(category.name).padding(.top)
-                    Text("Valor limite: R$ \(String(format: "%.2f", category.limitedValue))")
+                    Text("Valor limite: \(category.limitedValue.moneyFormat)")
                     /*Text("Gastou: R$ 500,00").foregroundColor(.red)
                     Text("Pode gastar: R$ 500,00").foregroundColor(.green)*/
                 }.padding()

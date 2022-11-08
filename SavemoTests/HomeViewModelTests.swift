@@ -20,7 +20,7 @@ final class HomeViewModelTests: XCTestCase {
         try! viewModel.addOperation("10", "", "date", "some category", type: OperationType.Credit)
         try! viewModel.addOperation("10", "", "date", "some category", type: OperationType.Credit)
         
-        XCTAssertEqual(viewModel.user.operations.count, 6) //6 because there are already 3 added by default
+        XCTAssertEqual(viewModel.user.operations.count, 7) //6 because there are already 4 added by default
     }
     
     func testDebitAddedCorrectly() {
@@ -28,7 +28,7 @@ final class HomeViewModelTests: XCTestCase {
         try! viewModel.addOperation("10", "", "date", "some category", type: OperationType.Debit)
         try! viewModel.addOperation("10", "", "date", "some category", type: OperationType.Debit)
         
-        XCTAssertEqual(viewModel.user.operations.count, 6) //6 because there are already 3 added by default
+        XCTAssertEqual(viewModel.user.operations.count, 7) //6 because there are already 4 added by default
     }
     
     func testDebitRaiseErrorWhenAddDebitValueZero() {

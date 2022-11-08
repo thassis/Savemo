@@ -31,7 +31,11 @@ struct AddOperation: View {
     }
     
     var body: some View {
-        VStack(alignment: .leading) {
+        Image(systemName: "plus.circle.fill")
+            .font(.system(size: 56.0))
+            .foregroundColor(.blue)
+       
+        /*VStack(alignment: .leading) {
             HStack {
                 TextField(
                     "Value",
@@ -78,7 +82,7 @@ struct AddOperation: View {
             }
         }.padding()
         
-        
+        */
     }
 }
 

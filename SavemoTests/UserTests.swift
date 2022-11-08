@@ -11,14 +11,12 @@ let FOOD_LIMITED_VALUE = Float(60)
 let SALARY = Float(2000)
 
 final class UserTests: XCTestCase {
-    let operationCurrentDate = try! Operation(5, OperationType.Debit, startDate: Date())
-    let operationLastYear = try! Operation(5, OperationType.Debit, startDate: Calendar.current.date(byAdding: .year, value: -1, to: Date())!)
     let foodCategory = try! Category(name: DefaultCategories.Food.rawValue, limitedValue: FOOD_LIMITED_VALUE)
     
     var user: User!
     
     override func setUp() {
-        user = User(operations: [operationCurrentDate, operationLastYear], categories: [foodCategory], balance: 0, salary: SALARY)
+        user = User(categories: [foodCategory], balance: 0, salary: SALARY)
     }
     
     func testPositiveBalanceAfterAddingCredit() {
@@ -46,22 +44,28 @@ final class UserTests: XCTestCase {
         }
     }
     
-    func testGetOperationsByCurrentMonthYear() {
+    func testGetOperationsByCurrentMonthYear() throws {
         let date = Date()
         let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: date)
         let currentMonth = calendarDate.month!
         let currentYear = calendarDate.year!
+        
+        let operationCurrentDate = try! Operation(5, OperationType.Credit, startDate: Date())
+        try user.addOperation(operationCurrentDate)
         
         let operations = user.getOperationsByMonthYear(month: currentMonth, year: currentYear)
         
         XCTAssert(operations[0] == operationCurrentDate)
     }
     
-    func testGetOperationsByLastMonthYear() {
+    func testGetOperationsByLastMonthYear() throws {
         let date = Calendar.current.date(byAdding: .year, value: -1, to: Date())!
         let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: date)
         let currentMonth = calendarDate.month!
         let lastYear = calendarDate.year!
+        
+        let operationLastYear = try! Operation(5, OperationType.Credit, startDate: Calendar.current.date(byAdding: .year, value: -1, to: Date())!)
+        try user.addOperation(operationLastYear)
         
         let operations = user.getOperationsByMonthYear(month: currentMonth, year: lastYear)
         

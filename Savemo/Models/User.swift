@@ -21,15 +21,14 @@ struct User {
         return sum
     }
     
-    init(operations: [Operation], categories: [Category], balance: Float, salary: Float) {
-        self.operations = operations
+    init(categories: [Category], balance: Float, salary: Float) {
+        self.operations = []
         self.categories = categories
         self.balance = balance
         self.salary = salary
     }
     
     mutating func addOperation(_ operation: Operation) throws {
-        operations.append(operation)
         if(operation.type == OperationType.Debit){
             if(operation.category == nil){
                 throw UserError.operationWithoutValidCategory
@@ -38,6 +37,7 @@ struct User {
         } else {
             self.balance += operation.value
         }
+        operations.append(operation)
     }
     
     mutating func addCategory(_ category: Category) throws {

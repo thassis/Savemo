@@ -11,24 +11,16 @@ class HomeViewModel: ObservableObject {
     @Published private(set) var user: User
     
     init() {        
-        //TODO: remove theses constants values and use phone data (CoreData)
-        //-------- Constants to be replaced with CoreData --------------
-        let creditReais = try! Operation(5000, OperationType.Debit, startDate: Date(), category: DefaultCategories.Education.rawValue)
-        let debitReais = try! Operation(480, OperationType.Debit, startDate: Date(), category: DefaultCategories.Education.rawValue)
-        let foodCategory = try! Category(name: DefaultCategories.Food.rawValue, limitedValue: 500)
-        let educationCategory = try! Category(name: DefaultCategories.Education.rawValue, limitedValue: 500)
-        let healthCategory = try! Category(name: DefaultCategories.HealthCare.rawValue, limitedValue: 500)
-        let entertainmentCategory = try! Category(name: DefaultCategories.Entertainment.rawValue, limitedValue: 500)
-        //-------- -------- -------- -------- -------- -------- --------
-        
-        self.user = User(operations: [creditReais, creditReais, debitReais], categories: [foodCategory, educationCategory, healthCategory, entertainmentCategory], balance: 2500, salary: 10000)
+        //TODO: remove this constant USER values and use phone data (CoreData)
+        let TEMP_DATA = HomeViewData_Temp()
+        self.user = TEMP_DATA.USER
+        print(self.user.operations)
     }
     
     func addOperation(_ value: String, _ description: String, _ strDate: String, _ category: String? = nil, type: OperationType) throws {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
         let date = dateFormatter.date(from: strDate) ?? Date()
-        let test = Float(value) ?? 0
         do {
             try user.addOperation(Operation(Float(value) ?? 0, type, startDate: date, category: category))
         } catch {
@@ -42,5 +34,23 @@ class HomeViewModel: ObservableObject {
     
     func addCredit(_ value: String, _ description: String, _ strDate: String) {
         try? addOperation(value, description, strDate, type: OperationType.Credit)
+    }
+    
+    func getChartData() -> [ChartData] {
+        let calendarDate = Calendar.current.dateComponents([.day, .year, .month], from: Date())
+        let currentMonth = calendarDate.month!
+        let currentYear = calendarDate.year!
+        
+        var chartData: [ChartData] = []
+        self.user.categories.forEach { cat in
+            chartData.append(
+                ChartData(
+                    label: cat.name,
+                    value: self.user.getValueHaveBeenSpentByCategory(cat, month: currentMonth, year: currentYear),
+                    limitedValue: cat.limitedValue
+                )
+            )
+        }
+        return chartData
     }
 }

@@ -35,6 +35,16 @@
 		64A09E262918995D001C0515 /* CategoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A09E252918995D001C0515 /* CategoriesList.swift */; };
 		64A09E2829189E6F001C0515 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A09E2729189E6F001C0515 /* HomeViewModelTests.swift */; };
 		64A09E292918A09A001C0515 /* CategoriesList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64A09E252918995D001C0515 /* CategoriesList.swift */; };
+		64DD6D862919D3F40055B541 /* GoalsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DD6D852919D3F40055B541 /* GoalsError.swift */; };
+		64DD6D872919D3F40055B541 /* GoalsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DD6D852919D3F40055B541 /* GoalsError.swift */; };
+		64DD6D892919D3FC0055B541 /* CategoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DD6D882919D3FC0055B541 /* CategoryError.swift */; };
+		64DD6D8A2919D3FC0055B541 /* CategoryError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DD6D882919D3FC0055B541 /* CategoryError.swift */; };
+		64DD6D8D2919D4190055B541 /* OperationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DD6D8C2919D4190055B541 /* OperationInput.swift */; };
+		64DD6D8E2919D4190055B541 /* OperationInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DD6D8C2919D4190055B541 /* OperationInput.swift */; };
+		64DD6D962919D4CF0055B541 /* OperationInputTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DD6D952919D4CF0055B541 /* OperationInputTests.swift */; };
+		64DD6D982919D4F30055B541 /* UserGoalsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DD6D972919D4F30055B541 /* UserGoalsTests.swift */; };
+		64DD6D9A2919D6CF0055B541 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DD6D992919D6CF0055B541 /* Goals.swift */; };
+		64DD6D9B2919D6CF0055B541 /* Goals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64DD6D992919D6CF0055B541 /* Goals.swift */; };
 		64FB22A2290F604B00A378D2 /* SavemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB22A1290F604B00A378D2 /* SavemoApp.swift */; };
 		64FB22A6290F604C00A378D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64FB22A5290F604C00A378D2 /* Assets.xcassets */; };
 		64FB22A9290F604C00A378D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64FB22A8290F604C00A378D2 /* Preview Assets.xcassets */; };
@@ -76,6 +86,12 @@
 		641D7629291888F400000AC1 /* AddOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOperation.swift; sourceTree = "<group>"; };
 		64A09E252918995D001C0515 /* CategoriesList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesList.swift; sourceTree = "<group>"; };
 		64A09E2729189E6F001C0515 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		64DD6D852919D3F40055B541 /* GoalsError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoalsError.swift; sourceTree = "<group>"; };
+		64DD6D882919D3FC0055B541 /* CategoryError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryError.swift; sourceTree = "<group>"; };
+		64DD6D8C2919D4190055B541 /* OperationInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OperationInput.swift; sourceTree = "<group>"; };
+		64DD6D952919D4CF0055B541 /* OperationInputTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperationInputTests.swift; sourceTree = "<group>"; };
+		64DD6D972919D4F30055B541 /* UserGoalsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGoalsTests.swift; sourceTree = "<group>"; };
+		64DD6D992919D6CF0055B541 /* Goals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Goals.swift; sourceTree = "<group>"; };
 		64FB229E290F604B00A378D2 /* Savemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Savemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		64FB22A1290F604B00A378D2 /* SavemoApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavemoApp.swift; sourceTree = "<group>"; };
 		64FB22A5290F604C00A378D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -117,6 +133,7 @@
 				641D75F02918305F00000AC1 /* Operation.swift */,
 				641D75FC29183EF400000AC1 /* Category.swift */,
 				641D761629184BDE00000AC1 /* User.swift */,
+				64DD6D992919D6CF0055B541 /* Goals.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -124,6 +141,7 @@
 		641D75F2291830BD00000AC1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				64DD6D8B2919D4190055B541 /* Validations */,
 				641D76032918405A00000AC1 /* ErrorTypes */,
 				641D75F3291830D700000AC1 /* Enums */,
 			);
@@ -143,6 +161,8 @@
 		641D76032918405A00000AC1 /* ErrorTypes */ = {
 			isa = PBXGroup;
 			children = (
+				64DD6D852919D3F40055B541 /* GoalsError.swift */,
+				64DD6D882919D3FC0055B541 /* CategoryError.swift */,
 				641D76042918406900000AC1 /* ValueError.swift */,
 				641D761E29186E3D00000AC1 /* UserError.swift */,
 			);
@@ -173,6 +193,14 @@
 				64A09E252918995D001C0515 /* CategoriesList.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		64DD6D8B2919D4190055B541 /* Validations */ = {
+			isa = PBXGroup;
+			children = (
+				64DD6D8C2919D4190055B541 /* OperationInput.swift */,
+			);
+			path = Validations;
 			sourceTree = "<group>";
 		};
 		64FB2295290F604B00A378D2 = {
@@ -224,6 +252,8 @@
 				641D75F829183CEA00000AC1 /* CategoryTests.swift */,
 				641D761929184BFB00000AC1 /* UserTests.swift */,
 				64A09E2729189E6F001C0515 /* HomeViewModelTests.swift */,
+				64DD6D952919D4CF0055B541 /* OperationInputTests.swift */,
+				64DD6D972919D4F30055B541 /* UserGoalsTests.swift */,
 			);
 			path = SavemoTests;
 			sourceTree = "<group>";
@@ -367,10 +397,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64DD6D8D2919D4190055B541 /* OperationInput.swift in Sources */,
 				641D75F12918305F00000AC1 /* Operation.swift in Sources */,
 				64A09E262918995D001C0515 /* CategoriesList.swift in Sources */,
 				641D75F5291830E800000AC1 /* Periodicity.swift in Sources */,
 				641D76122918472D00000AC1 /* OperationType.swift in Sources */,
+				64DD6D9A2919D6CF0055B541 /* Goals.swift in Sources */,
 				641D761F29186E3D00000AC1 /* UserError.swift in Sources */,
 				641D760A2918421800000AC1 /* HomeViewModel.swift in Sources */,
 				641D76052918406900000AC1 /* ValueError.swift in Sources */,
@@ -378,6 +410,8 @@
 				641D762A291888F400000AC1 /* AddOperation.swift in Sources */,
 				641D75FB29183D2600000AC1 /* DefaultCategories.swift in Sources */,
 				641D75FD29183EF400000AC1 /* Category.swift in Sources */,
+				64DD6D862919D3F40055B541 /* GoalsError.swift in Sources */,
+				64DD6D892919D3FC0055B541 /* CategoryError.swift in Sources */,
 				641D7626291885E400000AC1 /* Home.swift in Sources */,
 				641D761729184BDE00000AC1 /* User.swift in Sources */,
 			);
@@ -387,7 +421,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				64DD6D8A2919D3FC0055B541 /* CategoryError.swift in Sources */,
 				641D75F62918329E00000AC1 /* Operation.swift in Sources */,
+				64DD6D962919D4CF0055B541 /* OperationInputTests.swift in Sources */,
 				64A09E292918A09A001C0515 /* CategoriesList.swift in Sources */,
 				641D760B2918421800000AC1 /* HomeViewModel.swift in Sources */,
 				641D75F7291832B300000AC1 /* Periodicity.swift in Sources */,
@@ -395,13 +431,17 @@
 				641D76062918406900000AC1 /* ValueError.swift in Sources */,
 				64A09E2829189E6F001C0515 /* HomeViewModelTests.swift in Sources */,
 				641D7627291885E400000AC1 /* Home.swift in Sources */,
+				64DD6D9B2919D6CF0055B541 /* Goals.swift in Sources */,
+				64DD6D872919D3F40055B541 /* GoalsError.swift in Sources */,
 				641D762B291888F400000AC1 /* AddOperation.swift in Sources */,
 				641D761829184BDE00000AC1 /* User.swift in Sources */,
 				641D7607291840D000000AC1 /* DefaultCategories.swift in Sources */,
 				641D75F929183CEA00000AC1 /* CategoryTests.swift in Sources */,
 				641D761A29184BFB00000AC1 /* UserTests.swift in Sources */,
 				641D75FE29183EF400000AC1 /* Category.swift in Sources */,
+				64DD6D8E2919D4190055B541 /* OperationInput.swift in Sources */,
 				641D762029186E3D00000AC1 /* UserError.swift in Sources */,
+				64DD6D982919D4F30055B541 /* UserGoalsTests.swift in Sources */,
 				641D76132918472D00000AC1 /* OperationType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

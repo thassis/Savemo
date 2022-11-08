@@ -8,5 +8,5 @@
 import Foundation
 
 enum CategoryError: Error {
-    case nameCannotBeZero
+    case nameCannotBeEmpty
 }

@@ -78,7 +78,7 @@ struct User {
                         sum += op.value
                     }
                 }
-
+                
             }
         }
         let valueCanBeSpent = category.limitedValue - sum
@@ -100,7 +100,7 @@ struct User {
                         sum += op.value
                     }
                 }
-
+                
             }
         }
         return sum

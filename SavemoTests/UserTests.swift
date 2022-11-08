@@ -14,7 +14,7 @@ final class UserTests: XCTestCase {
     let operationCurrentDate = try! Operation(5, OperationType.Debit, startDate: Date())
     let operationLastYear = try! Operation(5, OperationType.Debit, startDate: Calendar.current.date(byAdding: .year, value: -1, to: Date())!)
     let foodCategory = try! Category(name: DefaultCategories.Food.rawValue, limitedValue: FOOD_LIMITED_VALUE)
-
+    
     var user: User!
     
     override func setUp() {
@@ -137,7 +137,7 @@ final class UserTests: XCTestCase {
         let currentYear = calendarDate.year!
         
         let pizzaOperation = try! Operation(8, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
-                
+        
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
@@ -163,7 +163,7 @@ final class UserTests: XCTestCase {
         
         let PIZZA_VALUE = Float(80)
         let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
-
+        
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
         
@@ -179,7 +179,7 @@ final class UserTests: XCTestCase {
         
         let PIZZA_VALUE = Float(80)
         let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
-
+        
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
         
@@ -194,7 +194,7 @@ final class UserTests: XCTestCase {
         
         let PIZZA_VALUE = Float(8)
         let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
-
+        
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
         
@@ -211,7 +211,7 @@ final class UserTests: XCTestCase {
         
         let PIZZA_VALUE = Float(80)
         let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
-
+        
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
         
@@ -228,7 +228,7 @@ final class UserTests: XCTestCase {
         
         let PIZZA_VALUE = Float(60)
         let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
-
+        
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
         
@@ -245,7 +245,7 @@ final class UserTests: XCTestCase {
         
         let PIZZA_VALUE = Float(60)
         let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
-
+        
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
         
@@ -270,7 +270,7 @@ final class UserTests: XCTestCase {
         
         let PIZZA_VALUE = Float(600)
         let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
-
+        
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
         
@@ -295,7 +295,7 @@ final class UserTests: XCTestCase {
         
         let PIZZA_VALUE = Float(500)
         let pizzaOperation = try! Operation(PIZZA_VALUE, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue)
-
+        
         try! user.addOperation(pizzaOperation)
         try! user.addOperation(pizzaOperation)
         

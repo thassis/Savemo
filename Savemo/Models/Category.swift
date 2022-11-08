@@ -14,10 +14,22 @@ struct Category: Equatable, Identifiable {
     
     init(name: String, limitedValue: Float) throws {
         if(limitedValue == 0){
-            throw ValueError.isZero            
+            throw ValueError.isZero
         }
         self.name = name
         self.limitedValue = limitedValue
+    }
+    
+    mutating func edit(name: String? = nil, limitedValue: Float? = nil) throws {
+        if(name == ""){
+            throw CategoryError.nameCannotBeEmpty
+        }
+        self.name = name ?? self.name
+        
+        if(limitedValue == 0){
+            throw ValueError.isZero
+        }
+        self.limitedValue = limitedValue ?? self.limitedValue
     }
     
     static func ==(lhs: Category, rhs: Category) -> Bool {

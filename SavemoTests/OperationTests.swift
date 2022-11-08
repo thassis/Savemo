@@ -8,7 +8,7 @@
 import XCTest
 
 final class OperationTests: XCTestCase {
-        
+    
     func testOperationWasCreatedWithRightValue() throws {
         let FIVE_REAIS = Float(5.0)
         let operation = try! Operation(FIVE_REAIS, OperationType.Credit , startDate: Date())
@@ -28,7 +28,7 @@ final class OperationTests: XCTestCase {
         let date = Date()
         let firstOperation = try! Operation(FIVE_REAIS, OperationType.Credit , startDate: date)
         let secondOperation = try! Operation(FIVE_REAIS, OperationType.Credit , startDate: date)
-
+        
         XCTAssert(firstOperation == secondOperation)
     }
     
@@ -37,20 +37,7 @@ final class OperationTests: XCTestCase {
         let SEVEN_REAIS = Float(7.0)
         let firstOperation = try! Operation(FIVE_REAIS, OperationType.Credit , startDate: Date())
         let secondOperation = try! Operation(SEVEN_REAIS, OperationType.Credit , startDate: Date())
-
+        
         XCTAssertFalse(firstOperation == secondOperation)
     }
-    
-    /*func testHasToPayAutomaticDebit() {
-        let FIVE_REAIS = Float(5.0)
-        
-        var dateComponent = DateComponents()
-        dateComponent.day = 1
-        
-        
-        
-        let operation = try! Operation(FIVE_REAIS, category: "some operation", startDate: Date(), automaticDebit: true, periodicity: Periodicity.daily)
-        
-        
-    }*/
 }

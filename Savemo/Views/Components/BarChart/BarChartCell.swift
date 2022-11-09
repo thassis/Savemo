@@ -31,7 +31,7 @@ struct BarChartCell: View {
         VStack(alignment: .leading){
             ZStack{
                 RoundedRectangle(cornerRadius: 5)
-                    .fill(.gray)
+                    .fill(Color("GrayLight"))
                     .scaleEffect(CGSize(width: 1, height: Double(normalizedLimitedValue)), anchor: .bottom)
                 RoundedRectangle(cornerRadius: 5)
                     .fill(barColor)

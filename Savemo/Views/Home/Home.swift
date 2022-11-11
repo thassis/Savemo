@@ -14,7 +14,8 @@ let currentYear = calendarDate.year!
 struct Home: View {
     @ObservedObject var homeViewModel: HomeViewModel
     @State var isAddPressed = false
-    @State private var showSheet = false
+    @State private var showSheetDebit = false
+    @State private var showSheetCredit = false
     
     var user: User {
         homeViewModel.user
@@ -33,22 +34,22 @@ struct Home: View {
                     Text("Savemo")
                         .bold()
                         .font(.largeTitle)
-                        .padding(.top)
+                        .padding(.top, 56)
                     
                     Text("\(self.user.balance.moneyFormat)")
-                        .font(.headline)
+                        .font(.title3)
                     
                     HeaderMessage(
                         valueCanBeSpent: self.user.getValueCanBeSpentAllCategories(
                             month: currentMonth, year: currentYear
                         )
-                    )
+                    ).padding(.vertical)
                     
-                    BarChart(barColor: .blue, data: self.homeViewModel.getChartData())
+                    BarChart(barColor: .black, data: self.homeViewModel.getChartData())
                         .cornerRadius(5)
                         .shadow(color: Color.black.opacity(0.1), radius: 5, x: 0, y: 2)
                     
-                   
+                    
                     Button(action: {isAddPressed = true}) {
                         HStack{
                             Text("See your goals")
@@ -57,16 +58,6 @@ struct Home: View {
                     }.padding(.vertical)
                 }
                 .padding(.vertical)
-                
-                /*AddOperation(
-                 onSubmitCredit: { value, description, date in
-                 self.homeViewModel.addCredit(value ?? "", description ?? "", date ?? "")
-                 },
-                 onSubmitDebit: { value, description, date, category in
-                 self.homeViewModel.addDebit(value ?? "", description ?? "", date ?? "", category ?? "")
-                 }
-                 )
-                 .padding()*/
             }
             .padding()
             .overlay(Color.black.opacity(isAddPressed ? 0.7 : 0))
@@ -86,12 +77,25 @@ struct Home: View {
                         .foregroundColor(.white)
                     }
                     .onTapGesture {
-                        showSheet.toggle()
+                        showSheetDebit.toggle()
                     }
-                    .sheet(isPresented: $showSheet) {
-                        SheetView()
+                    .sheet(
+                        isPresented: $showSheetDebit,
+                        onDismiss: {
+                            isAddPressed = false
+                        }
+                    ) {
+                        AddOperationSheetModal(
+                            categoriesName: self.user.categories.map { cat in return cat.name},
+                            isDebitOpertaion: true,
+                            onSubmitDebit: { value, description, date, category in
+                                self.homeViewModel.addDebit(value ?? "", description ?? "", date ?? Date(), category ?? "")
+                            }
+                        )
+                        .padding()
                     }
                     .padding()
+                    
                     HStack(alignment: .center){
                         Text("Register Credit").foregroundColor(.white).fontWeight(.bold)
                         Image(
@@ -99,12 +103,31 @@ struct Home: View {
                         )
                         .font(.system(size: 30.0))
                         .foregroundColor(.white)
-                    }.padding([.bottom, .horizontal])
+                    }
+                    .padding([.bottom, .horizontal])
+                    .onTapGesture {
+                        showSheetCredit.toggle()
+                    }
+                    .sheet(
+                        isPresented: $showSheetCredit,
+                        onDismiss: {
+                            isAddPressed = false
+                        }
+                    ) {
+                        AddOperationSheetModal(
+                            categoriesName: self.user.categories.map { cat in return cat.name},
+                            isDebitOpertaion: false,
+                            onSubmitCredit: { value, description, date in
+                                self.homeViewModel.addCredit(value ?? "", description ?? "", date ?? Date())
+                            }
+                        )
+                        .padding()
+                    }
                 }
                 
                 Image(systemName: isAddPressed ? "xmark.circle.fill" : "plusminus.circle.fill")
                     .font(.system(size: 56.0))
-                    .foregroundStyle(.white, .blue)
+                    .foregroundStyle(.white, .black)
                     .onTapGesture {
                         isAddPressed.toggle()
                     }
@@ -113,25 +136,6 @@ struct Home: View {
         }
     }
 }
-
-struct SheetView: View {
-   @Environment(\.dismiss) var dismiss
-
-    var body: some View {
-        ZStack {
-           Button {
-              dismiss()
-           } label: {
-               Image(systemName: "xmark.circle")
-                 .font(.largeTitle)
-                 .foregroundColor(.gray)
-           }
-         }
-         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topTrailing)
-         .padding()
-    }
-}
-
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {

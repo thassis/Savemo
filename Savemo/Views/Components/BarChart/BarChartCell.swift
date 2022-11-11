@@ -37,7 +37,7 @@ struct BarChartCell: View {
                     .fill(barColor)
                     .scaleEffect(CGSize(width: 1, height: Double(normalizedValue)), anchor: .bottom)
             }
-            Text("\(self.limitedValue.moneyFormat)").font(.caption2)
+            Text("\(self.limitedValue.moneyFormat)").font(.caption2).foregroundColor(.gray)
             Text("\(self.value.moneyFormat)").font(.caption2).foregroundColor(self.barColor)
             
         }
@@ -47,8 +47,8 @@ struct BarChartCell: View {
 struct BarChartCell_Previews: PreviewProvider {
     static var previews: some View {
         HStack {
-            BarChartCell(value: 380, limitedValue: 550, normalizedValue: 0.8, normalizedLimitedValue: 1, barColor: .blue)
-            BarChartCell(value: 200, limitedValue: 400, normalizedValue: 0.7, normalizedLimitedValue: 0.9, barColor: .blue)
+            BarChartCell(value: 380, limitedValue: 550, normalizedValue: 0.8, normalizedLimitedValue: 1, barColor: .black)
+            BarChartCell(value: 200, limitedValue: 400, normalizedValue: 0.7, normalizedLimitedValue: 0.9, barColor: .black)
         }
     }
 }

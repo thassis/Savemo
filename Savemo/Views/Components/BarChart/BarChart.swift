@@ -25,7 +25,7 @@ struct BarChart: View {
                 VStack(alignment: .leading) {
                     HStack(spacing: 4) {
                         
-                        Rectangle().foregroundColor(.blue).frame(width: 16.0, height: 16.0).cornerRadius(5)
+                        Rectangle().foregroundColor(.black).frame(width: 16.0, height: 16.0).cornerRadius(5)
                         Text("Used Value Lower").font(.caption2).padding(.trailing)
                         
                         Rectangle().foregroundColor(.gray).frame(width: 16.0, height: 16.0).cornerRadius(5)
@@ -151,6 +151,6 @@ let chartDataSet: [ChartData] = [
 
 struct BarChart_Previews: PreviewProvider {  
     static var previews: some View {
-        BarChart(barColor: .blue, data: chartDataSet)
+        BarChart(barColor: .black, data: chartDataSet)
     }
 }

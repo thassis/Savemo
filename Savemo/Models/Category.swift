@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Category: Equatable, Identifiable {
+struct Category: Equatable, Identifiable, Hashable {
     var id = UUID()
     private(set) var name: String
     private(set) var limitedValue: Float

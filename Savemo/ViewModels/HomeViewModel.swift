@@ -17,23 +17,20 @@ class HomeViewModel: ObservableObject {
         print(self.user.operations)
     }
     
-    func addOperation(_ value: String, _ description: String, _ strDate: String, _ category: String? = nil, type: OperationType) throws {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy'-'MM'-'dd'"
-        let date = dateFormatter.date(from: strDate) ?? Date()
+    func addOperation(_ value: String, _ description: String, _ date: Date, _ category: String? = nil, type: OperationType) throws {
         do {
-            try user.addOperation(Operation(Float(value) ?? 0, type, startDate: date, category: category))
+            try user.addOperation(Operation(Float((Float(value) ?? 0)/100), type, startDate: date, category: category))
         } catch {
             throw error
         }
     }
     
-    func addDebit(_ value: String, _ description: String, _ strDate: String, _ category: String) {
-        try? addOperation(value, description, strDate, category, type: OperationType.Debit)
+    func addDebit(_ value: String, _ description: String, _ date: Date, _ category: String) {
+        try? addOperation(value, description, date, category, type: OperationType.Debit)
     }
     
-    func addCredit(_ value: String, _ description: String, _ strDate: String) {
-        try? addOperation(value, description, strDate, type: OperationType.Credit)
+    func addCredit(_ value: String, _ description: String, _ date: Date) {
+        try? addOperation(value, description, date, type: OperationType.Credit)
     }
     
     func getChartData() -> [ChartData] {

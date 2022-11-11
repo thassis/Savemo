@@ -76,9 +76,6 @@ struct Home: View {
                         .font(.system(size: 30.0))
                         .foregroundColor(.white)
                     }
-                    .onTapGesture {
-                        showSheetDebit.toggle()
-                    }
                     .sheet(
                         isPresented: $showSheetDebit,
                         onDismiss: {
@@ -95,6 +92,9 @@ struct Home: View {
                         .padding()
                     }
                     .padding()
+                    .onTapGesture {
+                        showSheetCredit.toggle()
+                    }
                     
                     HStack(alignment: .center){
                         Text("Register Credit").foregroundColor(.white).fontWeight(.bold)
@@ -105,9 +105,6 @@ struct Home: View {
                         .foregroundColor(.white)
                     }
                     .padding([.bottom, .horizontal])
-                    .onTapGesture {
-                        showSheetCredit.toggle()
-                    }
                     .sheet(
                         isPresented: $showSheetCredit,
                         onDismiss: {
@@ -122,6 +119,9 @@ struct Home: View {
                             }
                         )
                         .padding()
+                    }
+                    .onTapGesture {
+                        showSheetCredit.toggle()
                     }
                 }
                 

@@ -93,7 +93,7 @@ struct Home: View {
                     }
                     .padding()
                     .onTapGesture {
-                        showSheetCredit.toggle()
+                        showSheetDebit.toggle()
                     }
                     
                     HStack(alignment: .center){

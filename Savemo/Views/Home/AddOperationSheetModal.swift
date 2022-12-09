@@ -24,6 +24,7 @@ struct AddOperationSheetModal: View {
     private let numberFormatter: NumberFormatter
     
     @State private var value = 0
+    @State private var hasError = false
     @State private var description: String = ""
     @State private var date = Date()
     @State private var selectedCategory = "Food"
@@ -75,6 +76,12 @@ struct AddOperationSheetModal: View {
                 CurrencyTextField(numberFormatter: numberFormatter, value: $value)
                     .frame(height: 100)
                 
+                if(hasError && value == 0){
+                    Text("Please, enter a valid value")
+                        .foregroundColor(.red)
+                        .padding(.bottom, 16)
+                }
+                
                 TextField(
                     "Description",
                     text: $description
@@ -100,18 +107,23 @@ struct AddOperationSheetModal: View {
                 }
                 
                 DatePicker("Pick a date", selection: $date, displayedComponents: [.date])
-                   .padding(.top)
+                    .padding(.top)
                 
                 Button {
-                    dismiss()
-                    if(self.isDebitOpertaion) {
-                        if let temp = self.onSubmitDebit {
-                            return temp(String(value), description, date, selectedCategory)
+                    if(OperationInput.validateValue(String(value))){
+                        dismiss()
+                        if(self.isDebitOpertaion) {
+                            if let temp = self.onSubmitDebit {
+                                return temp(String(value), description, date, selectedCategory)
+                            }
+                        } else {
+                            if let temp = self.onSubmitCredit {
+                                return temp(String(value), description, date)
+                            }
                         }
                     } else {
-                        if let temp = self.onSubmitCredit {
-                            return temp(String(value), description, date)
-                        }
+                        print("teste")
+                        hasError = true
                     }
                 } label: {
                     Text("Create")

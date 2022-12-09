@@ -16,6 +16,7 @@ struct OperationInput {
     }
     
     static func validateValue(_ value: String) -> Bool {
+        if(value == "0") { return false }
         return applyRegex(regex: "^[0-9]+$", str: value)
     }
     
@@ -36,20 +37,6 @@ struct OperationInput {
             }
         }
         return true
-    }
-    
-    static func valueMask(value: String) -> String {
-        let lastCharacter = value.last
-        var newString: String = ""
-        
-        for (index, char) in value.enumerated() {
-            if(index != value.count - 1){
-                newString += String(char)
-            } else {
-                newString += "0"
-            }
-        }
-        return newString
     }
     
 }

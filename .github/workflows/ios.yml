@@ -44,5 +44,5 @@ jobs:
           xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
       - name: Test
         uses: actions/checkout@v1
-      - name: Build and Test
-        run:  xcodebuild test -project Savemo.xcodeproj -scheme Savemo -destination "platform=$platform,name=$device" build test
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v1.2.1

@@ -23,25 +23,38 @@ final class SavemoUITests: XCTestCase {
     
     
     func testBalanceValueAfterAddingCredit() throws {
-        app.images["Exposure"].tap()
-        sleep(2)
-        app.staticTexts["Register Credit"].tap()
-        sleep(2)
-        app.textFields["InputValue"].tap()
+     /*   let cell = app.tables.cells.firstMatch
+                XCTAssertTrue(cell.waitForExistence(timeout: 10))
+                cell.tap()*/
+        
+        let exposure = app.images["Exposure"]
+        XCTAssertTrue(exposure.waitForExistence(timeout: 10))
+        exposure.tap()
+        
+        let registerCredit = app.staticTexts["Register Credit"]
+        XCTAssertTrue(registerCredit.waitForExistence(timeout: 10))
+        registerCredit.tap()
+        
+        let inputValue = app.textFields["InputValue"]
+        XCTAssertTrue(inputValue.waitForExistence(timeout: 10))
+        inputValue.tap()
+        
         sleep(2)
         let key = app.keys["4"]
         key.tap()
         sleep(2)
         let key2 = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        key2.tap()
-        key2.tap()
-        key2.tap()
-        key2.tap()
         sleep(2)
-        app.buttons["Create"].tap()
-        sleep(10)
+        key2.tap()
+        key2.tap()
+        key2.tap()
+        key2.tap()
         
-        XCTAssert(app.staticTexts["R$ 20800.00"].exists)
+        let create = app.buttons["Create"]
+        XCTAssertTrue(create.waitForExistence(timeout: 10))
+        create.tap()
+        
+        XCTAssert(app.staticTexts["R$ 20800.00"].waitForExistence(timeout: 10))
     }
     
     /*func testBalanceValueAfterAddingDebit() throws {

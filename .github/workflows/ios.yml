@@ -25,8 +25,11 @@ jobs:
       env:
         API_KEY: ${{ secrets.API_KEY }}
         CORRECT_COVERAGE: ${{ secrets.CORRECT_COVERAGE }}
+        scheme: ${{ 'default' }}
+        platform: ${{ 'iOS Simulator' }}
       run: |
-        xcodebuild -scheme Savemo -sdk iphonesimulator -derivedDataPath Build/ -destination 'platform=iOS Simulator,name=iPhone 11' -enableCodeCoverage YES clean build test
+        device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
+        xcodebuild -scheme Savemo -sdk iphonesimulator -derivedDataPath Build/ -destination -destination "platform=$platform,name=$device" -enableCodeCoverage YES clean build test
         cd Build/Build/ProfileData
         cd $(ls -d */|head -n 1)
         directory=${PWD##*/}

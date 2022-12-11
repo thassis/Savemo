@@ -399,6 +399,7 @@
 					};
 					64FB22B7290F604C00A378D2 = {
 						CreatedOnToolsVersion = 14.0.1;
+						TestTargetID = 64FB229D290F604B00A378D2;
 					};
 				};
 			};
@@ -772,6 +773,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Savemo;
 			};
 			name = Debug;
 		};
@@ -791,6 +793,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Savemo;
 			};
 			name = Release;
 		};

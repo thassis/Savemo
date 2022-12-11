@@ -36,7 +36,7 @@ struct Home: View {
                         .font(.largeTitle)
                         .padding(.top, 56)
                     
-                    Text("\(self.user.balance.moneyFormat)")
+                    Text("Total: \(self.user.balance.moneyFormat)")
                         .font(.title3)
                     
                     HeaderMessage(

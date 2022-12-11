@@ -22,7 +22,7 @@ struct HeaderMessage: View {
             HStack(alignment: .center, spacing: 4){
                 Image(systemName: "exclamationmark.triangle")
                 Text(
-                    "You've already spent all the money you should this month"
+                    "You've spent all the money you should this month"
                 ).font(.caption).fontWeight(.bold)
                 Spacer()
             }

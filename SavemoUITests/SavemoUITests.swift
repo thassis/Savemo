@@ -10,32 +10,112 @@ import XCTest
 final class SavemoUITests: XCTestCase {
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-
-        // In UI tests it is usually best to stop immediately when a failure occurs.
         continueAfterFailure = false
-
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
     }
 
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // UI tests must launch the application that they test.
+    
+    func testCheckValueCanBeSpentAfterAddingDebit() throws {
         let app = XCUIApplication()
         app.launch()
+        
+        app.images["Exposure"].tap()
+        app.staticTexts["Register Debit"].tap()
+        app.textFields["InputValue"].tap()
+        
+        let key = app/*@START_MENU_TOKEN@*/.keys["5"]/*[[".keyboards.keys[\"5\"]",".keys[\"5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key.tap()
+        
+        let key2 = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key2.tap()
+        key2.tap()
+        key2.tap()
+        app.buttons["Create"].tap()
 
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+        XCTAssert(app.staticTexts["You can spend R$ 350.00 this month yet"].exists)
     }
+    
+    func testCheckValueCannotBeSpentAfterAddingBigDebit() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.images["Exposure"].tap()
+        app.staticTexts["Register Debit"].tap()
+        app.textFields["InputValue"].tap()
+        
+        let key = app/*@START_MENU_TOKEN@*/.keys["5"]/*[[".keyboards.keys[\"5\"]",".keys[\"5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key.tap()
+        
+        let key2 = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key2.tap()
+        key2.tap()
+        key2.tap()
+        key2.tap()
+        key2.tap()
+        key2.tap()
+        key2.tap()
+        app.buttons["Create"].tap()
 
-    func testLaunchPerformance() throws {
-        if #available(macOS 10.15, iOS 13.0, tvOS 13.0, watchOS 7.0, *) {
-            // This measures how long it takes to launch your application.
-            measure(metrics: [XCTApplicationLaunchMetric()]) {
-                XCUIApplication().launch()
-            }
-        }
+        XCTAssert(app.staticTexts["You've spent all the money you should this month"].exists)
+    }
+    
+    func testCantAddOperationIfValueIsZero() throws {
+        let starBalanceValue = "R$ 20400.00"
+        
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.images["Exposure"].tap()
+        app.staticTexts["Register Debit"].tap()
+        
+        app.buttons["Create"].tap()
+
+        XCTAssert(app.staticTexts["Please, enter a valid value"].exists)
+        XCTAssert(app.staticTexts[starBalanceValue].exists)
+
+    }
+    
+    func testBalanceValueAfterAddingDebit() throws {
+        
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.images["Exposure"].tap()
+        app.staticTexts["Register Debit"].tap()
+        
+        app.textFields["InputValue"].tap()
+        let key = app.keys["4"]
+        key.tap()
+        let key2 = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key2.tap()
+        key2.tap()
+        key2.tap()
+        key2.tap()
+        app.buttons["Create"].tap()
+
+        XCTAssert(app.staticTexts["R$ 20000.00"].exists)
+    }
+    
+    func testBalanceValueAfterAddingCredit() throws {
+        
+        let app = XCUIApplication()
+        app.launch()
+        
+        app.images["Exposure"].tap()
+        app.staticTexts["Register Credit"].tap()
+        
+        app.textFields["InputValue"].tap()
+        let key = app.keys["4"]
+        key.tap()
+        let key2 = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        key2.tap()
+        key2.tap()
+        key2.tap()
+        key2.tap()
+        app.buttons["Create"].tap()
+
+        XCTAssert(app.staticTexts["R$ 20800.00"].exists)
     }
 }

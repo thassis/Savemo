@@ -16,7 +16,7 @@ let healthCategory = try! Category(name: DefaultCategories.HealthCare.rawValue, 
 let entertainmentCategory = try! Category(name: DefaultCategories.Entertainment.rawValue, limitedValue: 1700)
 
 struct HomeViewData_Temp {
-    var USER = User(categories: [foodCategory, educationCategory, entertainmentCategory, healthCategory], balance: 2500, salary: 5000)
+    var USER = User(categories: [foodCategory, educationCategory, entertainmentCategory, healthCategory], balance: 25000, salary: 5000)
     
     init(){
         try! USER.addOperation(Operation(1700, OperationType.Debit, startDate: Date(), category: DefaultCategories.Food.rawValue))

@@ -75,6 +75,7 @@ struct AddOperationSheetModal: View {
             VStack(alignment: .leading) {
                 CurrencyTextField(numberFormatter: numberFormatter, value: $value)
                     .frame(height: 100)
+                    .accessibility(identifier: "InputValue")
                 
                 if(hasError && value == 0){
                     Text("Please, enter a valid value")
@@ -122,7 +123,6 @@ struct AddOperationSheetModal: View {
                             }
                         }
                     } else {
-                        print("teste")
                         hasError = true
                     }
                 } label: {

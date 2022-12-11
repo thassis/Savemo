@@ -36,7 +36,7 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["R$ 20800.00"].exists)
+        XCTAssert(app.staticTexts["R$ 20800.00"].waitForExistence(timeout: 2))
     }
     
     func testBalanceValueAfterAddingDebit() throws {
@@ -54,7 +54,7 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["R$ 20000.00"].exists)
+        XCTAssert(app.staticTexts["R$ 20000.00"].waitForExistence(timeout: 2))
     }
     
     func testCheckValueCanBeSpentAfterAddingDebit() throws {
@@ -70,7 +70,7 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["You can spend R$ 350.00 this month yet"].exists)
+        XCTAssert(app.staticTexts["You can spend R$ 350.00 this month yet"].waitForExistence(timeout: 2))
     }
     
     func testCheckValueCannotBeSpentAfterAddingBigDebit() throws {
@@ -91,7 +91,7 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["You've spent all the money you should this month"].exists)
+        XCTAssert(app.staticTexts["You've spent all the money you should this month"].waitForExistence(timeout: 2))
     }
     
     func testCantAddOperationIfValueIsZero() throws {
@@ -102,8 +102,8 @@ final class SavemoUITests: XCTestCase {
         
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["Please, enter a valid value"].exists)
-        XCTAssert(app.staticTexts[starBalanceValue].exists)
+        XCTAssert(app.staticTexts["Please, enter a valid value"].waitForExistence(timeout: 2))
+        XCTAssert(app.staticTexts[starBalanceValue].waitForExistence(timeout: 2))
         
     }
 }

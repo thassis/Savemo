@@ -36,10 +36,10 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["R$ 20800.00"].waitForExistence(timeout: 2))
+        XCTAssert(app.staticTexts["R$ 20800.00"].exists)
     }
     
-    func testBalanceValueAfterAddingDebit() throws {
+    /*func testBalanceValueAfterAddingDebit() throws {
         
         app.images["Exposure"].tap()
         app.staticTexts["Register Debit"].tap()
@@ -54,13 +54,14 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["R$ 20000.00"].waitForExistence(timeout: 2))
+        XCTAssert(app.staticTexts["R$ 20000.00"].exists)
     }
     
     func testCheckValueCanBeSpentAfterAddingDebit() throws {
         app.images["Exposure"].tap()
         app.staticTexts["Register Debit"].tap()
         app.textFields["InputValue"].tap()
+        
         let key = app/*@START_MENU_TOKEN@*/.keys["5"]/*[[".keyboards.keys[\"5\"]",".keys[\"5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         key.tap()
         
@@ -70,7 +71,7 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["You can spend R$ 350.00 this month yet"].waitForExistence(timeout: 2))
+        XCTAssert(app.staticTexts["You can spend R$ 350.00 this month yet"].exists)
     }
     
     func testCheckValueCannotBeSpentAfterAddingBigDebit() throws {
@@ -91,7 +92,7 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["You've spent all the money you should this month"].waitForExistence(timeout: 2))
+        XCTAssert(app.staticTexts["You've spent all the money you should this month"].exists)
     }
     
     func testCantAddOperationIfValueIsZero() throws {
@@ -102,8 +103,8 @@ final class SavemoUITests: XCTestCase {
         
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["Please, enter a valid value"].waitForExistence(timeout: 2))
-        XCTAssert(app.staticTexts[starBalanceValue].waitForExistence(timeout: 2))
+        XCTAssert(app.staticTexts["Please, enter a valid value"].exists)
+        XCTAssert(app.staticTexts[starBalanceValue].exists)
         
-    }
+    }*/
 }

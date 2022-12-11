@@ -29,7 +29,7 @@ jobs:
         platform: ${{ 'iOS Simulator' }}
       run: |
         device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
-        xcodebuild -scheme Savemo -sdk iphonesimulator -derivedDataPath Build/ -destination -destination "platform=$platform,name=$device" -enableCodeCoverage YES clean build test
+        xcodebuild -scheme Savemo -sdk iphonesimulator -derivedDataPath Build/ -destination "platform=$platform,name=$device" -enableCodeCoverage YES clean build test
         cd Build/Build/ProfileData
         cd $(ls -d */|head -n 1)
         directory=${PWD##*/}

@@ -1,50 +1,49 @@
-name: iOS starter workflow
-
+name: Github Actions Swift Standard
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
-
+    branches:
+      - main
 jobs:
-  build:
-    name: Build and Test default scheme using any available iPhone simulator
-    runs-on: macos-latest
-
+  test-and-standard-upload:
+    runs-on: macos-10.15
     steps:
-      - name: Checkout
-        uses: actions/checkout@v1
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
-        with:
-          files: ./coverage1.xml
-          verbose: true
-          xcode: true
-      # - name: Set Default Scheme
-      #   run: |
-      #     scheme_list=$(xcodebuild -list -json | tr -d "\n")
-      #     default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
-      #     echo $default | cat >default
-      #     echo Using default scheme: $default
-      # - name: Build
-      #   env:
-      #     scheme: ${{ 'default' }}
-      #     platform: ${{ 'iOS Simulator' }}
-      #   run: |
-      #     # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-      #     device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
-      #     if [ $scheme = default ]; then scheme=$(cat default); fi
-      #     if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
-      #     file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-      #     xcodebuild build-for-testing -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device"
-      # - name: Test
-      #   env:
-      #     scheme: ${{ 'default' }}
-      #     platform: ${{ 'iOS Simulator' }}
-      #   run: |
-      #     # xcrun xctrace returns via stderr, not the expected stdout (see https://developer.apple.com/forums/thread/663959)
-      #     device=`xcrun xctrace list devices 2>&1 | grep -oE 'iPhone.*?[^\(]+' | head -1 | awk '{$1=$1;print}' | sed -e "s/ Simulator$//"`
-      #     if [ $scheme = default ]; then scheme=$(cat default); fi
-      #     if [ "`ls -A | grep -i \\.xcworkspace\$`" ]; then filetype_parameter="workspace" && file_to_build="`ls -A | grep -i \\.xcworkspace\$`"; else filetype_parameter="project" && file_to_build="`ls -A | grep -i \\.xcodeproj\$`"; fi
-      #     file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
-      #     xcodebuild test-without-building -scheme "$scheme" -"$filetype_parameter" "$file_to_build" -destination "platform=$platform,name=$device" -enableCodeCoverage YES
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+    - uses: actions/setup-python@v2
+    - run: pip install requests
+    - name: Install xcode-install
+      run: gem install xcode-install
+    - name: Install xcode 11.7
+      run: xcversion install 11.7
+    - name: Xcode Version
+      run: xcodebuild -version
+    - name: Build and Test
+      env:
+        API_KEY: ${{ secrets.API_KEY }}
+        CORRECT_COVERAGE: ${{ secrets.CORRECT_COVERAGE }}
+      run: |
+        xcodebuild -scheme Savemo -sdk iphonesimulator -derivedDataPath Build/ -destination 'platform=iOS Simulator,name=iPhone 11' -enableCodeCoverage YES clean build test
+        cd Build/Build/ProfileData
+        cd $(ls -d */|head -n 1)
+        directory=${PWD##*/}
+        pathCoverage=Build/Build/ProfileData/${directory}/Coverage.profdata
+        cd ../../../../
+        xcrun llvm-cov export -format="lcov" -instr-profile $pathCoverage Build/Build/Products/Debug-iphonesimulator/Savemo.app/Savemo > info.lcov
+        curl -Os https://uploader.codecov.io/latest/macos/codecov
+        chmod +x codecov
+        ./codecov -t ${CODECOV_TOKEN}
+        python request.py
+    - name: Upstream to Standards
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        COVERAGE_SOURCE_FILE: ${{ secrets.COVERAGE_SOURCE_FILE }}
+      if: ${{ github.event_name == 'push'}}
+      run: |
+        wget --header "Authorization: token ${GH_TOKEN}" \
+        --header "Accept: application/vnd.github.v3.raw" \
+        https://api.github.com/repos/codecov/standards/contents/upstream.sh
+        bash upstream.sh

@@ -1,0 +1,4 @@
+coverage_service: cobertura_xml
+xcodeproj: ./Savemo.xcodeproj
+scheme: Savemo
+output_directory: ./

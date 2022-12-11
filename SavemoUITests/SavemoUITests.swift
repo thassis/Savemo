@@ -25,36 +25,33 @@ final class SavemoUITests: XCTestCase {
     func testBalanceValueAfterAddingCredit() throws {
         app.images["Exposure"].tap()
         app.staticTexts["Register Credit"].tap()
-        
         app.textFields["InputValue"].tap()
-        let key = app.keys["4"]
+        let key = app/*@START_MENU_TOKEN@*/.keys["5"]/*[[".keyboards.keys[\"5\"]",".keys[\"5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         key.tap()
+        
         let key2 = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        key2.tap()
         key2.tap()
         key2.tap()
         key2.tap()
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["Total: R$ 20800.00"].exists)
+        XCTAssert(app.staticTexts["Total: R$ 20450.00"].exists)
     }
     
     func testBalanceValueAfterAddingDebit() throws {
-        
         app.images["Exposure"].tap()
         app.staticTexts["Register Debit"].tap()
-        
         app.textFields["InputValue"].tap()
-        let key = app.keys["4"]
+        let key = app/*@START_MENU_TOKEN@*/.keys["5"]/*[[".keyboards.keys[\"5\"]",".keys[\"5\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
         key.tap()
+        
         let key2 = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        key2.tap()
         key2.tap()
         key2.tap()
         key2.tap()
         app.buttons["Create"].tap()
         
-        XCTAssert(app.staticTexts["Total: R$ 20000.00"].exists)
+        XCTAssert(app.staticTexts["Total: R$ 20350.00"].exists)
     }
     
     func testCheckValueCanBeSpentAfterAddingDebit() throws {
@@ -94,7 +91,7 @@ final class SavemoUITests: XCTestCase {
         XCTAssert(app.staticTexts["You've spent all the money you should this month"].exists)
     }
     
-    func testCantAddOperationIfValueIsZero() throws {        
+    func testCantAddOperationIfValueIsZero() throws {
         app.images["Exposure"].tap()
         app.staticTexts["Register Debit"].tap()
         

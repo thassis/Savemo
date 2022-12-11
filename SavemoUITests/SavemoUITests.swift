@@ -53,7 +53,7 @@ final class SavemoUITests: XCTestCase {
         let create = app.buttons["Create"]
         XCTAssertTrue(create.waitForExistence(timeout: 10))
         create.tap()
-        
+        sleep(10)
         XCTAssert(app.staticTexts["R$ 20800.00"].waitForExistence(timeout: 10))
     }
     

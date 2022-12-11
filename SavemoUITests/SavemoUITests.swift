@@ -25,8 +25,9 @@ final class SavemoUITests: XCTestCase {
     func testBalanceValueAfterAddingCredit() throws {
         app.images["Exposure"].tap()
         app.staticTexts["Register Credit"].tap()
-        
+        sleep(2)
         app.textFields["InputValue"].tap()
+        sleep(2)
         let key = app.keys["4"]
         key.tap()
         let key2 = app/*@START_MENU_TOKEN@*/.keys["0"]/*[[".keyboards.keys[\"0\"]",".keys[\"0\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
@@ -35,6 +36,7 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         key2.tap()
         app.buttons["Create"].tap()
+        sleep(2)
         
         XCTAssert(app.staticTexts["R$ 20800.00"].exists)
     }

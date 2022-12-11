@@ -65,10 +65,19 @@
 		64FB22A2290F604B00A378D2 /* SavemoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB22A1290F604B00A378D2 /* SavemoApp.swift */; };
 		64FB22A6290F604C00A378D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64FB22A5290F604C00A378D2 /* Assets.xcassets */; };
 		64FB22A9290F604C00A378D2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 64FB22A8290F604C00A378D2 /* Preview Assets.xcassets */; };
+		64FB22BD290F604C00A378D2 /* SavemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB22BC290F604C00A378D2 /* SavemoUITests.swift */; };
+		64FB22BF290F604C00A378D2 /* SavemoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64FB22BE290F604C00A378D2 /* SavemoUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		64FB22AF290F604C00A378D2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 64FB2296290F604B00A378D2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 64FB229D290F604B00A378D2;
+			remoteInfo = Savemo;
+		};
+		64FB22B9290F604C00A378D2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 64FB2296290F604B00A378D2 /* Project object */;
 			proxyType = 1;
@@ -113,6 +122,7 @@
 		64FB22A5290F604C00A378D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		64FB22A8290F604C00A378D2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		64FB22AE290F604C00A378D2 /* SavemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SavemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		64FB22B8290F604C00A378D2 /* SavemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SavemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		64FB22BC290F604C00A378D2 /* SavemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavemoUITests.swift; sourceTree = "<group>"; };
 		64FB22BE290F604C00A378D2 /* SavemoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavemoUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,6 +136,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		64FB22AB290F604C00A378D2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64FB22B5290F604C00A378D2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -258,6 +275,7 @@
 			children = (
 				64FB229E290F604B00A378D2 /* Savemo.app */,
 				64FB22AE290F604C00A378D2 /* SavemoTests.xctest */,
+				64FB22B8290F604C00A378D2 /* SavemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -344,6 +362,24 @@
 			productReference = 64FB22AE290F604C00A378D2 /* SavemoTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		64FB22B7290F604C00A378D2 /* SavemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 64FB22C8290F604C00A378D2 /* Build configuration list for PBXNativeTarget "SavemoUITests" */;
+			buildPhases = (
+				64FB22B4290F604C00A378D2 /* Sources */,
+				64FB22B5290F604C00A378D2 /* Frameworks */,
+				64FB22B6290F604C00A378D2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				64FB22BA290F604C00A378D2 /* PBXTargetDependency */,
+			);
+			name = SavemoUITests;
+			productName = SavemoUITests;
+			productReference = 64FB22B8290F604C00A378D2 /* SavemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -360,6 +396,9 @@
 					64FB22AD290F604C00A378D2 = {
 						CreatedOnToolsVersion = 14.0.1;
 						TestTargetID = 64FB229D290F604B00A378D2;
+					};
+					64FB22B7290F604C00A378D2 = {
+						CreatedOnToolsVersion = 14.0.1;
 					};
 				};
 			};
@@ -378,6 +417,7 @@
 			targets = (
 				64FB229D290F604B00A378D2 /* Savemo */,
 				64FB22AD290F604C00A378D2 /* SavemoTests */,
+				64FB22B7290F604C00A378D2 /* SavemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -397,6 +437,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				6422CF6B291ACD5A0005F09A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		64FB22B6290F604C00A378D2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,6 +519,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		64FB22B4290F604C00A378D2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				64FB22BD290F604C00A378D2 /* SavemoUITests.swift in Sources */,
+				64FB22BF290F604C00A378D2 /* SavemoUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -479,6 +535,11 @@
 			isa = PBXTargetDependency;
 			target = 64FB229D290F604B00A378D2 /* Savemo */;
 			targetProxy = 64FB22AF290F604C00A378D2 /* PBXContainerItemProxy */;
+		};
+		64FB22BA290F604C00A378D2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 64FB229D290F604B00A378D2 /* Savemo */;
+			targetProxy = 64FB22B9290F604C00A378D2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -695,6 +756,44 @@
 			};
 			name = Release;
 		};
+		64FB22C9290F604C00A378D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 744W89F35D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thiago.SavemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		64FB22CA290F604C00A378D2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 744W89F35D;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.thiago.SavemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -721,6 +820,15 @@
 			buildConfigurations = (
 				64FB22C6290F604C00A378D2 /* Debug */,
 				64FB22C7290F604C00A378D2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		64FB22C8290F604C00A378D2 /* Build configuration list for PBXNativeTarget "SavemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				64FB22C9290F604C00A378D2 /* Debug */,
+				64FB22CA290F604C00A378D2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -22,7 +22,7 @@ final class SavemoUITests: XCTestCase {
     }
     
     
-    func testBalanceValueAfterAddingCredit() throws {
+    /*func testBalanceValueAfterAddingCredit() throws {
      /*   let cell = app.tables.cells.firstMatch
                 XCTAssertTrue(cell.waitForExistence(timeout: 10))
                 cell.tap()*/
@@ -55,9 +55,9 @@ final class SavemoUITests: XCTestCase {
         create.tap()
         sleep(10)
         XCTAssert(app.staticTexts["R$ 20800.00"].waitForExistence(timeout: 10))
-    }
+    }*/
     
-    /*func testBalanceValueAfterAddingDebit() throws {
+    func testBalanceValueAfterAddingDebit() throws {
         
         app.images["Exposure"].tap()
         app.staticTexts["Register Debit"].tap()
@@ -124,5 +124,5 @@ final class SavemoUITests: XCTestCase {
         XCTAssert(app.staticTexts["Please, enter a valid value"].exists)
         XCTAssert(app.staticTexts[starBalanceValue].exists)
         
-    }*/
+    }
 }

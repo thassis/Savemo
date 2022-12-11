@@ -8,19 +8,19 @@
 import XCTest
 
 final class SavemoUITests: XCTestCase {
-
-    override func setUpWithError() throws {
+    let app = XCUIApplication()
+    
+    override func setUpWithError() throws {        
+        app.launchArguments = ["--Reset"]
+        app.launch()
         continueAfterFailure = false
     }
-
+    
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
     
     func testCheckValueCanBeSpentAfterAddingDebit() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
         app.images["Exposure"].tap()
         app.staticTexts["Register Debit"].tap()
         app.textFields["InputValue"].tap()
@@ -33,14 +33,11 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         key2.tap()
         app.buttons["Create"].tap()
-
+        
         XCTAssert(app.staticTexts["You can spend R$ 350.00 this month yet"].exists)
     }
     
     func testCheckValueCannotBeSpentAfterAddingBigDebit() throws {
-        let app = XCUIApplication()
-        app.launch()
-        
         app.images["Exposure"].tap()
         app.staticTexts["Register Debit"].tap()
         app.textFields["InputValue"].tap()
@@ -57,30 +54,24 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         key2.tap()
         app.buttons["Create"].tap()
-
+        
         XCTAssert(app.staticTexts["You've spent all the money you should this month"].exists)
     }
     
     func testCantAddOperationIfValueIsZero() throws {
         let starBalanceValue = "R$ 20400.00"
         
-        let app = XCUIApplication()
-        app.launch()
-        
         app.images["Exposure"].tap()
         app.staticTexts["Register Debit"].tap()
         
         app.buttons["Create"].tap()
-
+        
         XCTAssert(app.staticTexts["Please, enter a valid value"].exists)
         XCTAssert(app.staticTexts[starBalanceValue].exists)
-
+        
     }
     
     func testBalanceValueAfterAddingDebit() throws {
-        
-        let app = XCUIApplication()
-        app.launch()
         
         app.images["Exposure"].tap()
         app.staticTexts["Register Debit"].tap()
@@ -94,15 +85,11 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         key2.tap()
         app.buttons["Create"].tap()
-
+        
         XCTAssert(app.staticTexts["R$ 20000.00"].exists)
     }
     
     func testBalanceValueAfterAddingCredit() throws {
-        
-        let app = XCUIApplication()
-        app.launch()
-        
         app.images["Exposure"].tap()
         app.staticTexts["Register Credit"].tap()
         
@@ -115,7 +102,7 @@ final class SavemoUITests: XCTestCase {
         key2.tap()
         key2.tap()
         app.buttons["Create"].tap()
-
+        
         XCTAssert(app.staticTexts["R$ 20800.00"].exists)
     }
 }
